@@ -1,0 +1,161 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.header {
+    margin-bottom: 20px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: #ffcc00;
+    text-shadow: 3px 3px #000;
+}
+
+.score-board {
+    font-size: 1.5em;
+    margin: 10px;
+    color: #ffcc00;
+    text-shadow: 2px 2px #000;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ffcc00;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    font-family: 'Press Start 2P', cursive; /* Aplica la fuente retro */
+}
+
+button:hover {
+    background-color: #ff9900;
+}
+
+.start-button {
+    display: block;
+}
+
+.retry-button {
+    display: none;
+}
+
+.game-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #000;
+    background-image: linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(-45deg, #333 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #333 75%), linear-gradient(-45deg, transparent 75%, #333 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+}
+
+.hole {
+    background-color: #333;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.mole {
+    width: 100%;
+    height: 100%;
+    background: url('img/gustaf2.png') no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    top: 100%;
+    transition: top 0.3s;
+}
+
+
+.mole.up {
+    top: 0;
+}
+
+.mole.hit {
+    animation: hit-animation 0.3s ease;
+}
+
+@keyframes hit-animation {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(0.8);
+        filter: brightness(0.5);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes flash-red {
+    0% {
+        filter: brightness(1) saturate(1);
+    }
+    50% {
+        filter: brightness(1.5) saturate(1);
+    }
+    100% {
+        filter: brightness(1) saturate(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .score-board {
+        font-size: 1.2em;
+    }
+
+    button {
+        font-size: 0.8em;
+        padding: 8px 16px;
+    }
+}

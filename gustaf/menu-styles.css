@@ -1,0 +1,129 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.menu-container h1 {
+    font-size: 3em; /* Tamaño de la fuente del título */
+    color: #ffcc00;
+    text-shadow: 3px 3px #000;
+    margin-bottom: 50px; /* Espacio entre el título y el botón */
+}
+
+.menu-container .play-button {
+    padding: 15px 30px; /* Tamaño del botón */
+    font-size: 1.2em; /* Tamaño de la fuente del botón */
+    background-color: #ffcc00;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: pulse 1.5s infinite;
+    font-family: 'Press Start 2P', cursive; /* Aplica la fuente retro */
+}
+
+.play-button:hover {
+    background-color: #ff9900;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-container h1 {
+        font-size: 2em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
+    }
+
+    .menu-container .play-button {
+        font-size: 1em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
+        padding: 10px 20px; /* Ajusta el padding para pantallas más pequeñas */
+    }
+}
+.by-line {
+   
+    font-size: 10px; /* Tamaño de fuente más pequeño */
+    color: #ffffff; /* Color de fuente blanco */
+    text-align: center; /* Alineación centrada */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+
+/*ANIMACION DE CABEZA*/
+@keyframes fall {
+    0% {
+        transform: translateY(-250px) rotate(0deg); /* Comienza arriba y sin rotación */
+        opacity: 10; /* Empieza invisible */
+    }
+    100% {
+        transform: translateY(150vh) rotate(360deg); /* Termina fuera de la pantalla hacia abajo con rotación completa */
+        opacity: 100; /* Termina invisible */
+    }
+}
+
+.menu-container {
+    /* Estilos del menú */
+    position: relative; /* Asegura que los elementos pseudo no escapen */
+    overflow: hidden; /* Oculta cualquier contenido excedente */
+}
+
+/* Genera múltiples imágenes de topos */
+.menu-container::before {
+    content: ''; /* Agrega un pseudo-elemento */
+    position: absolute; /* Lo posiciona en relación con el contenedor */
+    width: 200px; /* Ancho de la imagen */
+    height: 250px; /* Altura de la imagen */
+    background-image: url('img/gustaf3.png'); /* Imagen de topo */
+    background-repeat: no-repeat;
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    animation: fall 10s linear infinite; /* Ajusta la duración y el tipo de animación */
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+    left: calc(90vw * random()); /* Posición horizontal aleatoria */
+    top: calc(-250px * random()); /* Posición vertical aleatoria */
+    animation-delay: 0s; /* Retraso aleatorio */
+}
+
+/* Repite el patrón para generar más imágenes de topos */
+.menu-container::before:nth-of-type(4),
+.menu-container::before:nth-of-type(5),
+.menu-container::before:nth-of-type(6) {
+    content: ''; /* Agrega un pseudo-elemento */
+    position: absolute; /* Lo posiciona en relación con el contenedor */
+    width: 200px; /* Ancho de la imagen */
+    height: 250px; /* Altura de la imagen */
+    background-image: url('img/gustaf3.png'); /* Imagen de topo */
+    background-repeat: no-repeat;
+    background-size: cover; /* Ajusta el tamaño de la imagen */
+    animation: fall 10s linear infinite; /* Ajusta la duración y el tipo de animación */
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+    left: calc(90vw * random()); /* Posición horizontal aleatoria */
+    top: calc(-250px * random()); /* Posición vertical aleatoria */
+    animation-delay: 0s; /* Retraso aleatorio */
+}
+
+/* Repite según sea necesario para más imágenes de topos */

@@ -13,30 +13,30 @@ body {
 }
 
 .header {
-    margin-bottom: 20px;
-    margin-top: 60px;
+    margin-bottom: 30px; /* Aumenta el margen inferior */
+    margin-top: 80px; /* Aumenta el margen superior */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 3em; /* Aumenta el tamaño de la fuente */
     color: #ffcc00;
     text-shadow: 3px 3px #000;
 }
 
 .score-board {
-    font-size: 1.5em;
-    margin: 10px;
+    font-size: 2em; /* Aumenta el tamaño de la fuente */
+    margin: 20px; /* Aumenta el margen */
     color: #ffcc00;
     text-shadow: 2px 2px #000;
 }
 
 button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1em;
+    margin: 15px; /* Aumenta el margen */
+    padding: 15px 30px; /* Aumenta el padding */
+    font-size: 1.2em; /* Aumenta el tamaño de la fuente */
     background-color: #ffcc00;
     color: #000;
     border: 2px solid #000;
@@ -97,13 +97,12 @@ button:hover {
     transition: top 0.3s;
 }
 
-
 .mole.up {
     top: 0;
 }
 
 .mole.hit {
-    animation: hit-animation 0.3s ease;
+    animation: hit-animation 0.3s ease, flash-red 0.3s;
 }
 
 @keyframes hit-animation {
@@ -123,13 +122,13 @@ button:hover {
 
 @keyframes flash-red {
     0% {
-        filter: brightness(1) saturate(1);
+        filter: brightness(1) sepia(0) saturate(1) hue-rotate(0deg);
     }
     50% {
-        filter: brightness(1.5) saturate(1);
+        filter: brightness(1.5) sepia(1) saturate(5) hue-rotate(-50deg);
     }
     100% {
-        filter: brightness(1) saturate(1);
+        filter: brightness(1) sepia(0) saturate(1) hue-rotate(0deg);
     }
 }
 
@@ -147,15 +146,15 @@ button:hover {
 
 @media (max-width: 600px) {
     h1 {
-        font-size: 1.5em;
+        font-size: 2em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
     }
 
     .score-board {
-        font-size: 1.2em;
+        font-size: 1.5em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
     }
 
     button {
-        font-size: 0.8em;
-        padding: 8px 16px;
+        font-size: 1em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
+        padding: 10px 20px; /* Ajusta el padding para pantallas más pequeñas */
     }
 }

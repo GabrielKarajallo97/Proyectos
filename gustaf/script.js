@@ -1,10 +1,11 @@
-let score = 0;
-const scoreBoard = document.getElementById('score');
-const holes = document.querySelectorAll('.hole');
+const moles = document.querySelectorAll('.mole');
+const scoreBoard = document.querySelector('#score');
+const startButton = document.querySelector('.start-button');
+const retryButton = document.querySelector('.retry-button');
 let lastHole;
 let timeUp = false;
-const startButton = document.getElementById('startButton');
-const retryButton = document.getElementById('retryButton');
+let score = 0;
+let gameTimer;
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -22,7 +23,7 @@ function randomHole(holes) {
 
 function peep() {
     const time = randomTime(200, 1000);
-    const hole = randomHole(holes);
+    const hole = randomHole(document.querySelectorAll('.hole'));
     hole.querySelector('.mole').classList.add('up');
     setTimeout(() => {
         hole.querySelector('.mole').classList.remove('up');
@@ -31,30 +32,17 @@ function peep() {
 }
 
 function startGame() {
-    score = 0;
-    scoreBoard.textContent = score;
-    timeUp = false;
+    scoreBoard.textContent = 0;
     startButton.style.display = 'none';
     retryButton.style.display = 'none';
+    score = 0;
+    timeUp = false;
     peep();
-    setTimeout(() => {
+    gameTimer = setTimeout(() => {
         timeUp = true;
         retryButton.style.display = 'block';
-    }, 10000);
+    }, 10000); // 10 segundos de juego
 }
-
-function bonk(e) {
-    if (!e.isTrusted) return; // cheater!
-    score++;
-    this.parentNode.classList.remove('up');
-    this.classList.add('hit');
-    setTimeout(() => this.classList.remove('hit'), 300); // Remove the class after animation
-    scoreBoard.textContent = score;
-}
-
-document.querySelectorAll('.mole').forEach(mole => mole.addEventListener('click', bonk));
-
-/*GOLPÈEEE */
 
 function bonk(e) {
     if (!e.isTrusted) return; // cheater!
@@ -66,3 +54,5 @@ function bonk(e) {
     setTimeout(() => this.classList.remove('hit'), 300);
     scoreBoard.textContent = score;
 }
+
+moles.forEach(mole => mole.addEventListener('click', bonk));

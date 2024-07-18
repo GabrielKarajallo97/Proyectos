@@ -4,44 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - App de Bicicletas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Login - BusBici</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
-
-    <!--FORMULARIO DE CREAR CUENTA-->
-    <div class="container" id="container">
-        <form>
-            <h1>Crea una cuenta</h1>
-            <div class="red-social-icon">
-                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+    <div class="contenedor-login">
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo de la App">
+        </div>
+        <form class="formulario-login">
+            <div class="grupo-formulario">
+                <input type="text" id="usuario" name="usuario" required placeholder="Nombre">
             </div>
-            <span>O puedes usar tu email para registrarte</span>
-            <input type="text" placeholder="Nombre">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Contraseña">
-            <button>Iniciar sesion</button>
-        </form>
-    </div>
-
-    <!--FORMULARIO DE INICIO DE SESION-->
-    <div class="contenedor-form iniciar-sesion">
-        <form>
-            <h1>Iniciar Sesión</h1>
-
-            <div class="red-social-icon">
-                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+            <div class="grupo-formulario">
+                <input type="password" id="contrasena" name="contrasena" required placeholder="Contraseña">
             </div>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Contraseña">
-            <button>Iniciar sesión</button>
-            <a href="#">¿Has olvidado tu contraseña?</a>
-   
+            <button type="submit">Iniciar Sesión</button>
         </form>
+        <div class="enlace-registro">
+            <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
+        </div>
     </div>
-
 </body>
 
 </html>
